@@ -1,4 +1,6 @@
-﻿namespace PageOfBob.Advent2022
+﻿using System.Collections.Generic;
+
+namespace PageOfBob.Advent2022
 {
     internal static class Helpers
     {
@@ -12,6 +14,24 @@
                     action(reader.ReadToEnd());
                 }
             }
+        }
+
+        public static void Run(Action<IEnumerable<string>> action, params string[] files)
+        {
+            foreach (var file in files)
+            {
+                using (var stream = typeof(Helpers).Assembly.GetManifestResourceStream($"PageOfBob.Advent2022.Data.{file}.txt"))
+                using (var reader = new StreamReader(stream!))
+                {
+                    action(reader.ReadToEnd().Lines());
+                }
+            }
+        }
+
+        public static SplitTwoChars SplitAsTwoChars(this string line)
+        {
+            var split = line.Split(" ");
+            return new SplitTwoChars(split[0][0], split[1][0]);
         }
 
         public static IEnumerable<string> Lines(this string line)
@@ -42,4 +62,6 @@
             return text.Split("\n\n");
         }
     }
+
+    public record SplitTwoChars(char Left, char Right);
 }

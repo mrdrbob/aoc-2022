@@ -61,6 +61,16 @@ namespace PageOfBob.Advent2022
 
             return text.Split("\n\n");
         }
+
+        public static IEnumerable<IEnumerable<T>> GroupByCount<T>(this IEnumerable<T> enumerable, int count)
+        {
+            while (enumerable.Any())
+            {
+                var next = enumerable.Take(count).ToList();
+                yield return next;
+                enumerable = enumerable.Skip(count);
+            }
+        }
     }
 
     public record SplitTwoChars(char Left, char Right);

@@ -28,10 +28,16 @@ namespace PageOfBob.Advent2022
             }
         }
 
-        public static SplitTwoChars SplitAsTwoChars(this string line)
+        public static SplitTwo<char> SplitAsTwoChars(this string line, string separator = " ")
         {
-            var split = line.Split(" ");
-            return new SplitTwoChars(split[0][0], split[1][0]);
+            var split = line.Split(separator);
+            return new SplitTwo<char>(split[0][0], split[1][0]);
+        }
+
+        public static SplitTwo<string> SplitAsTwoStrings(this string line, string separator = " ")
+        {
+            var split = line.Split(separator);
+            return new SplitTwo<string>(split[0], split[1]);
         }
 
         public static IEnumerable<string> Lines(this string line)
@@ -71,7 +77,14 @@ namespace PageOfBob.Advent2022
                 enumerable = enumerable.Skip(count);
             }
         }
+
+        public static IEnumerable<string> IgnoreEmpties(this IEnumerable<string> enumerable)
+            => enumerable.Where(x => !string.IsNullOrWhiteSpace(x));
     }
 
-    public record SplitTwoChars(char Left, char Right);
+    public record SplitTwo<T>(T Left, T Right)
+    {
+        public SplitTwo<K> Transform<K>(Func<T, K> transform)
+            => new SplitTwo<K>(transform(Left), transform(Right));
+    }
 }

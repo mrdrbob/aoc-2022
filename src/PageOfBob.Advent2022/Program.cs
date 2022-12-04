@@ -13,7 +13,10 @@ stopwatch.Start();
 // Run(Day02.PartTwo, "02-example", "02-input");
 
 // Run(Day03.PartOne, "03-example", "03-input");
-Run(Day03.PartTwo, "03-example", "03-input");
+// Run(Day03.PartTwo, "03-example", "03-input");
+
+// Run(Day04.PartOne, "04-example", "04-input");
+Run(Day04.PartTwo, "04-example", "04-input");
 
 stopwatch.Stop();
 Console.WriteLine($"Dishes are done, man: {stopwatch.Elapsed.TotalMilliseconds} seconds");

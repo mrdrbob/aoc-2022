@@ -40,6 +40,11 @@ namespace PageOfBob.Advent2022
             return new SplitTwo<string>(split[0], split[1]);
         }
 
+        public static SplitTwo<string> SplitAsTwoStrings(this IEnumerable<string> lines, string separator = " ")
+        {
+            return new SplitTwo<string>(lines.First(), lines.Skip(1).First());
+        }
+
         public static IEnumerable<string> Lines(this string line)
         {
             using var reader = new StringReader(line);
@@ -80,11 +85,24 @@ namespace PageOfBob.Advent2022
 
         public static IEnumerable<string> IgnoreEmpties(this IEnumerable<string> enumerable)
             => enumerable.Where(x => !string.IsNullOrWhiteSpace(x));
+
+        public static char? CharAt(this string line, int index)
+        {
+            if (index < line.Length)
+                return line[index];
+            return null;
+        }
     }
 
     public record SplitTwo<T>(T Left, T Right)
     {
         public SplitTwo<K> Transform<K>(Func<T, K> transform)
             => new SplitTwo<K>(transform(Left), transform(Right));
+    }
+
+    public record SplitThree<T>(T One, T Two, T Three)
+    {
+        public SplitThree<K> Transform<K>(Func<T, K> transform)
+            => new SplitThree<K>(transform(One), transform(Two), transform(Three));
     }
 }

@@ -1,4 +1,5 @@
-﻿using PageOfBob.Advent2022.Days;
+﻿using PageOfBob.Advent2022;
+using PageOfBob.Advent2022.Days;
 using System.Diagnostics;
 using static PageOfBob.Advent2022.Helpers;
 
@@ -19,7 +20,28 @@ stopwatch.Start();
 // Run(Day04.PartTwo, "04-example", "04-input");
 
 // Run(Day05.PartOne, "05-example", "05-input");
-Run(Day05.PartTwo, "05-example", "05-input");
+// Run(Day05.PartTwo, "05-example", "05-input");
+
+/*
+RunInline(Day06.PartOne, 
+    "mjqjpqmgbljsphdztnvjfqwrcgsmlb", 
+    "bvwbjplbgvbhsrlpgdmjqwftvncz", 
+    "nppdvjthqldpwncqszvftbrmjlhg", 
+    "nznrnfrfntjfmvfwmzdfjlvtqnbhcprsg",
+    "zcfzfwzzqfrljwzlrfnpqdbhtmscgvjw",
+    "06-input".ReadFile()
+);
+*/
+
+
+RunInline(Day06.PartTwo,
+    "mjqjpqmgbljsphdztnvjfqwrcgsmlb",
+    "bvwbjplbgvbhsrlpgdmjqwftvncz",
+    "nppdvjthqldpwncqszvftbrmjlhg",
+    "nznrnfrfntjfmvfwmzdfjlvtqnbhcprsg",
+    "zcfzfwzzqfrljwzlrfnpqdbhtmscgvjw",
+    "06-input".ReadFile()
+);
 
 stopwatch.Stop();
 Console.WriteLine($"Dishes are done, man: {stopwatch.Elapsed.TotalMilliseconds} seconds");

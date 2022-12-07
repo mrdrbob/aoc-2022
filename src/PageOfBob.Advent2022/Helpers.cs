@@ -28,6 +28,19 @@ namespace PageOfBob.Advent2022
             }
         }
 
+        public static string ReadFile(this string file)
+        {
+            using var stream = typeof(Helpers).Assembly.GetManifestResourceStream($"PageOfBob.Advent2022.Data.{file}.txt");
+            using var reader = new StreamReader(stream!);
+            return reader.ReadToEnd();
+        }
+
+        public static void RunInline(Action<string> action, params string[] values)
+        {
+            foreach (var file in values)
+                action(file);
+        }
+
         public static SplitTwo<char> SplitAsTwoChars(this string line, string separator = " ")
         {
             var split = line.Split(separator);

@@ -32,8 +32,7 @@ RunInline(Day06.PartOne,
     "06-input".ReadFile()
 );
 */
-
-
+/*
 RunInline(Day06.PartTwo,
     "mjqjpqmgbljsphdztnvjfqwrcgsmlb",
     "bvwbjplbgvbhsrlpgdmjqwftvncz",
@@ -42,6 +41,10 @@ RunInline(Day06.PartTwo,
     "zcfzfwzzqfrljwzlrfnpqdbhtmscgvjw",
     "06-input".ReadFile()
 );
+*/
+
+//Run(Day07.PartOne, "07-example", "07-input");
+Run(Day07.PartTwo, "07-example", "07-input");
 
 stopwatch.Stop();
 Console.WriteLine($"Dishes are done, man: {stopwatch.Elapsed.TotalMilliseconds} seconds");

@@ -105,6 +105,22 @@ namespace PageOfBob.Advent2022
                 return line[index];
             return null;
         }
+
+        public static IEnumerable<T> TakeWhileInclusive<T>(this IEnumerable<T> source, Func<T, bool> predicate)
+        {
+            foreach (var item in source)
+            {
+                if (predicate(item))
+                {
+                    yield return item;
+                }
+                else
+                {
+                    yield return item;
+                    yield break;
+                }
+            }
+        }
     }
 
     public record SplitTwo<T>(T Left, T Right)

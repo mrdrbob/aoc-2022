@@ -47,7 +47,10 @@ RunInline(Day06.PartTwo,
 // Run(Day07.PartTwo, "07-example", "07-input");
 
 // Run(Day08.PartOne, "08-example", "08-input");
-Run(Day08.PartTwo, "08-example", "08-input");
+// Run(Day08.PartTwo, "08-example", "08-input");
+
+// Run(Day09.PartOne, "09-example", "09-input");
+Run(Day09.PartTwo, "09-example", "09-example2", "09-input");
 
 stopwatch.Stop();
 Console.WriteLine($"Dishes are done, man: {stopwatch.Elapsed.TotalMilliseconds} seconds");
